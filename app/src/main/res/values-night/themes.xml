@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Alarm" parent="Theme.BaseAlarm">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/vk_blue</item>
+        <item name="colorPrimaryVariant">@color/vk_blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/vk_blue</item>
+        <item name="colorSecondaryVariant">@color/vk_blue</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <!-- Customize your theme here. -->
+    </style>
+</resources>

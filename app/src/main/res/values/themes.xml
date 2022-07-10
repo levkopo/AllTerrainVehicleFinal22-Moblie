@@ -1,0 +1,38 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.BaseAlarm" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:statusBarColor">?android:attr/colorBackground</item>
+        <item name="android:navigationBarColor">?android:attr/colorBackground</item>
+    </style>
+
+    <style name="Theme.Alarm" parent="Theme.BaseAlarm">
+        <item name="colorPrimary">@color/vk_blue</item>
+        <item name="colorPrimaryVariant">@color/vk_blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorSecondary">@color/vk_blue</item>
+        <item name="colorSecondaryVariant">@color/vk_blue</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSurface">#edeef0</item>
+
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+
+    <style name="Theme.Alarm.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Alarm.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="Theme.Alarm.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="Theme.Alarm.AppWidgetContainerParent" parent="@android:style/Theme.DeviceDefault">
+        <item name="appWidgetRadius">8dp</item>
+        <item name="appWidgetPadding">4dp</item>
+        <item name="appWidgetInnerRadius">4dp</item>
+    </style>
+
+    <style name="Theme.Alarm.AppWidgetContainer"
+           parent="Theme.Alarm.AppWidgetContainerParent"/>
+</resources>
