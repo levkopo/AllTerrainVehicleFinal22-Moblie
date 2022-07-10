@@ -36,20 +36,22 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".activities.PokemanQuizActivity" android:exported="false"/>
+
         <receiver
-                android:name=".StopAlarmReceiver"
+                android:name=".receivers.StopAlarmReceiver"
                 android:exported="false"/>
 
         <receiver
-                android:name=".DisableAlarmReceiver"
+                android:name=".receivers.DisableAlarmReceiver"
                 android:exported="false"/>
 
         <receiver
-                android:name=".AlarmReceiver"
+                android:name=".receivers.AlarmReceiver"
                 android:exported="false"/>
 
         <service
-                android:name=".AlarmService"
+                android:name=".services.AlarmService"
                 android:exported="false"/>
     </application>
 

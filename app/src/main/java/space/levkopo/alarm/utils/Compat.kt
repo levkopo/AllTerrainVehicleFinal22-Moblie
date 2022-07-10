@@ -1,4 +1,4 @@
-package space.levkopo.alarm
+package space.levkopo.alarm.utils
 
 import android.app.PendingIntent
 import android.os.Build

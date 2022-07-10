@@ -1,4 +1,4 @@
-package space.levkopo.alarm
+package space.levkopo.alarm.activities
 
 import android.app.TimePickerDialog
 import android.content.Intent
@@ -19,10 +19,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
+import space.levkopo.alarm.activities.viewmodels.MainViewModel
 import space.levkopo.alarm.models.AlarmModel
 import space.levkopo.alarm.ui.components.AlarmItem
 import space.levkopo.alarm.ui.components.VKDivider
@@ -46,7 +45,7 @@ class MainActivity : ComponentActivity() {
                         initializer = { MainViewModel(application) }
                     )
 
-                    AlarmListScreen(viewModel)
+                    MainScreen(viewModel)
                 }
             }
         }
@@ -54,7 +53,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-private fun AlarmListScreen(viewModel: MainViewModel) {
+private fun MainScreen(viewModel: MainViewModel) {
 
     // В последний момент понял почему ничего не работает
     // Спасибо Google за хорошую документацию к будильникам
@@ -89,26 +88,25 @@ private fun AlarmListScreen(viewModel: MainViewModel) {
                     },
                     backgroundColor = MaterialTheme.colors.background,
                     contentColor = MaterialTheme.colors.onBackground,
-                    elevation = 0.dp
+                    elevation = 0.dp,
+                    actions = {
+                        IconButton(
+                            onClick = {
+                                newAlarmDialog.show()
+                            },
+                        ) {
+                            Icon(
+                                Icons.Filled.Add,
+                                tint = MaterialTheme.colors.primary,
+                                contentDescription = "Создать"
+                            )
+                        }
+                    }
                 )
 
                 VKDivider()
             }
         },
-        floatingActionButton = {
-            ExtendedFloatingActionButton(
-                onClick = {
-                    newAlarmDialog.show()
-                },
-                icon = {
-                    Icon(
-                        Icons.Filled.Add,
-                        contentDescription = "Создать"
-                    )
-                },
-                text = { Text(text = "Создать") }
-            )
-        }
     ) {
         LazyColumn {
             items(alarms.value.sortedBy { it.calendar.timeInMillis }) {

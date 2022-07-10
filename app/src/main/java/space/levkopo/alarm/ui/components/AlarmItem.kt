@@ -14,11 +14,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.*
-import space.levkopo.alarm.MainViewModel
+import space.levkopo.alarm.activities.viewmodels.MainViewModel
 import space.levkopo.alarm.models.AlarmModel
 import space.levkopo.alarm.ui.theme.VKSansDisplayFont
 import java.text.SimpleDateFormat
-import java.time.DayOfWeek
 import java.util.*
 
 @OptIn(ExperimentalUnitApi::class)

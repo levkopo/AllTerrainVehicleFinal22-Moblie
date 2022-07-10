@@ -1,4 +1,4 @@
-package space.levkopo.alarm
+package space.levkopo.alarm.services
 
 import android.app.PendingIntent
 import android.app.Service
@@ -6,12 +6,15 @@ import android.content.Context
 import android.content.Intent
 import android.media.Ringtone
 import android.media.RingtoneManager
-import android.os.Binder
 import android.os.IBinder
 import androidx.core.app.NotificationChannelCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import space.levkopo.alarm.*
 import space.levkopo.alarm.models.AlarmModel
+import space.levkopo.alarm.receivers.AlarmReceiver
+import space.levkopo.alarm.receivers.StopAlarmReceiver
+import space.levkopo.alarm.utils.Compat
 
 class AlarmService: Service() {
     var ringtone: Ringtone? = null
@@ -59,7 +62,8 @@ class AlarmService: Service() {
             .setAutoCancel(false)
             .addAction(NotificationCompat.Action(
                 null, getString(R.string.stop), PendingIntent.getBroadcast(baseContext, 0,
-                    Intent(baseContext, StopAlarmReceiver::class.java), Compat.FLAG_IMMUTABLE)
+                    Intent(baseContext, StopAlarmReceiver::class.java), Compat.FLAG_IMMUTABLE
+                )
             ))
             .build()
 

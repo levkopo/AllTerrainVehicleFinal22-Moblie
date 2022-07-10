@@ -1,9 +1,11 @@
-package space.levkopo.alarm
+package space.levkopo.alarm.activities.viewmodels
 
 import android.app.AlarmManager
 import android.app.Application
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.ViewModel
+import space.levkopo.alarm.services.AlarmService
+import space.levkopo.alarm.Repository
 import space.levkopo.alarm.models.AlarmModel
 
 
@@ -28,7 +30,8 @@ class MainViewModel(private val application: Application) : ViewModel() {
         val pendingIntent = AlarmService.getAlarmIntent(application, alarm)
         val calendar = alarm.calendar
 
-        alarmManager.setAlarmClock(AlarmManager.AlarmClockInfo(
+        alarmManager.setAlarmClock(
+            AlarmManager.AlarmClockInfo(
             calendar.timeInMillis,
             pendingIntent
         ), pendingIntent)

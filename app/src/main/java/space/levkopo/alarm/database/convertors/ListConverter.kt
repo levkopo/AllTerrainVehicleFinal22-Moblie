@@ -2,8 +2,7 @@ package space.levkopo.alarm.database.convertors
 
 import androidx.room.TypeConverter
 import org.json.JSONArray
-import space.levkopo.alarm.Compat.map
-import java.util.*
+import space.levkopo.alarm.utils.Compat.map
 import kotlin.collections.ArrayList
 
 
